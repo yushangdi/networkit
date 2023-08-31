@@ -70,8 +70,11 @@ More system-specific information on how to install NetworKit on Linux, macOS (bo
 
     git clone https://github.com/networkit/networkit networkit
     cd networkit
+    pip install "cython==0.29.*"
+    git submodule update --init
     python3 setup.py build_ext [-jX]
-    pip3 install -e .
+    sudo apt install cmake
+    sudo pip3 install -e .
 
 The script will call `cmake` and `ninja` (`make` as fallback) to compile
 NetworKit as a library, build the extensions and copy it to the top folder. By

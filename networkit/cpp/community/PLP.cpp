@@ -114,6 +114,7 @@ void PLP::run() {
 
     } // end while
     hasRun = true;
+    std::cout << "Num iterations: " << nIterations << std::endl;
 }
 
 void PLP::setUpdateThreshold(count th) {

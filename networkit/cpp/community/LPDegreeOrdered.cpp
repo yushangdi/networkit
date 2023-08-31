@@ -82,6 +82,7 @@ void LPDegreeOrdered::run() {
     }
     result = std::move(labels);
     hasRun = true;
+    std::cout << "Num iterations: " << nIterations << std::endl;
 }
 
 count LPDegreeOrdered::numberOfIterations() {
