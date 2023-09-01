@@ -1808,6 +1808,22 @@ def writeCommunities(communities, path):
 	PartitionWriter().write(communities, path)
 	print("wrote communities to: {0}".format(path))
 
+def writeCommunitiesNestedFormat(communities, path):
+	""" 
+	writeCommunities(communities, path)
+
+	Write a partition into communities to a file in nested format. Each line is a community.
+
+	Parameters
+	----------
+	communities : networkit.Partition
+		The input communities.
+	path : str
+		Path to write the file to.
+	"""
+	PartitionWriter().write_nested_format(communities, path)
+	print("wrote communities to: {0}".format(path))
+
 
 def compareCommunities(G, zeta1, zeta2):
 	"""

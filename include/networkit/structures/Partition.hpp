@@ -262,6 +262,11 @@ public:
     std::set<std::set<index>> getSubsets() const;
 
     /**
+     * @return the subsets of the partition as a set of sets.
+     */
+    std::vector<std::set<index>> getVectorSubsets() const;
+
+    /**
      * Get the ids of nonempty subsets.
      *
      * @return A set of ids of nonempty subsets.

@@ -148,6 +148,22 @@ std::set<std::set<index>> Partition::getSubsets() const {
     return subsets;
 }
 
+std::vector<std::set<index>> Partition::getVectorSubsets() const {
+    std::vector<std::set<index>> table(omega + 1);
+    this->forEntries([&](index e, index s) {
+        assert(s <= omega);
+        table[s].insert(e);
+    });
+
+    std::vector<std::set<index>> subsets;
+    for (const auto &set : table) {
+        if (!set.empty()) {
+            subsets.push_back(set);
+        }
+    }
+    return subsets;
+}
+
 void Partition::allToOnePartition() {
     omega = 0;
     this->parallelForEntries([&](index e, index) { this->data[e] = 0; });

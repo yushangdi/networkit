@@ -82,6 +82,7 @@ cdef extern from "<networkit/structures/Partition.hpp>":
 		string getName() except +
 		set[index] getSubsetIds() except +
 		index operator[](index) except +
+		vector[set[index]] getVectorSubsets() except +
 
 cdef class Partition:
 	cdef _Partition _this

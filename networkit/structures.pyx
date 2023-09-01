@@ -731,3 +731,5 @@ cdef class Partition:
 				selfToOther[selfSubset] = other[i]
 		return True
 
+	def getSubsets(self):
+			return self._this.getVectorSubsets()

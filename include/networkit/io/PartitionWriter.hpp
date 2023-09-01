@@ -25,6 +25,19 @@ public:
         std::ofstream file{path};
         zeta.forEntries([&](node, const index c) { file << c << '\n'; });
     }
+
+    // `zeta` has to be already compact
+    void write_nested_format(const Partition &zeta, const std::string &path) const {
+        std::ofstream file{path};
+        // zeta.forEntries([&](node, const index c) { file << c << '\n'; });
+       const auto& subsets = zeta.getSubsets();
+       for (const auto& cluster_list: subsets){
+        for (const auto c: cluster_list){
+            file << c << "\t";
+        }
+        file << "\n";
+       }
+    }
 };
 
 } /* namespace NetworKit */
