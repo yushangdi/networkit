@@ -611,6 +611,7 @@ cdef extern from "<networkit/io/PartitionWriter.hpp>":
 	cdef cppclass _PartitionWriter "NetworKit::PartitionWriter":
 		_PartitionWriter() except +
 		void write(_Partition, string path) nogil except +
+		void write_nested_format(_Partition, string path) nogil except +
 
 
 cdef class PartitionWriter:
@@ -639,6 +640,24 @@ cdef class PartitionWriter:
 		cdef string cpath = stdstring(path)
 		with nogil:
 			self._this.write(zeta._this, cpath)
+		
+	def write_nested_format(self, Partition zeta, path):
+		"""
+		write(zeta, path)
+		
+		Writes a partition to a file.
+		File format: line i contains subset id of element i.
+
+		Parameters
+		----------
+		zeta : networkit.Partition
+			The input partition.
+		path : str
+			The output path.
+		"""
+		cdef string cpath = stdstring(path)
+		with nogil:
+			self._this.write_nested_format(zeta._this, cpath)
 
 cdef extern from "<networkit/io/BinaryPartitionReader.hpp>":
 

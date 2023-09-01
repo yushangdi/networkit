@@ -7,4 +7,5 @@ print("{0} elements assigned to {1} subsets".format(plmCommunities.numberOfEleme
                                                     plmCommunities.numberOfSubsets()))
 
 print(plmCommunities.getSubsets())
+plmCommunities.compact()
 nk.community.writeCommunitiesNestedFormat(plmCommunities, "output/communtiesPLM.partition")
